@@ -13,24 +13,29 @@ mapbox_key = "pk.eyJ1IjoiZGF2aWR5ZmxvbCIsImEiOiJjamdyNmRqMnAwMzBhMnhsb2oyNWx0aWk
 
 ##Un/comment this path if you are running the code in windows (please change the path for your computer)
 
-input_path = "C:\\Users\\David\\Dropbox (GeoAdaptive)\\2022_INI-04_DEVELOPMENT DASHBOARD\\DOCS\\Project development\\R code\\Traffic_DeVioCities\\traff_deviocities\\inputs\\"
-output_path = "C:\\Users\\David\\Dropbox (GeoAdaptive)\\2022_INI-04_DEVELOPMENT DASHBOARD\\DOCS\\Project development\\R code\\Traffic_DeVioCities\\traff_deviocities\\outputs\\"
+#input_path = "C:\\Users\\David\\Dropbox (GeoAdaptive)\\2022_INI-04_DEVELOPMENT DASHBOARD\\DOCS\\Project development\\R code\\Traffic_DeVioCities\\traff_deviocities\\inputs\\"
+#output_path = "C:\\Users\\David\\Dropbox (GeoAdaptive)\\2022_INI-04_DEVELOPMENT DASHBOARD\\DOCS\\Project development\\R code\\Traffic_DeVioCities\\traff_deviocities\\outputs\\cities\\"
 
 ##Un/comment this path if you are running the code in VM (If you are using the GeoAdaptive GCP Instance do not change)
 
-#input_path = "/home/dyoung/gitrepo/gt/Archivo_CA/"
-#output_path = "/home/dyoung/gitrepo/gt/Ouputs/traffic_congestion_vect/"
+input_path = "/home/dyoung/gitrepo/traff_deviocities/inputs/"
+output_path = "/home/dyoung/gitrepo/traff_deviocities/outputs/cities/"
 
 
 ## Grab shapefile, in this case I'm using just the Central America Shapefile
 raw_polygon <- st_read(paste0(input_path, "CitiesADM2.shp"))
 ca_polygon <- st_make_valid(raw_polygon)
 
+for (i in 1:nrow(ca_polygon)){
+adm = ca_polygon[i, ]
+
+adm_code = adm$ADM2_PCODE
+
 ## Query traffic data using googletraffic library methods (pay attention to the zoom, this will be the road congestion data detail: more zoom more detail but more processing time)
 ca_conf_poly <- get_vector_tiles(      # From here, the code gets the data in tiles for later vector exportation
   tileset_id = "mapbox.mapbox-traffic-v1",
-  location = ca_polygon,
-  zoom = 15,
+  location = adm,
+  zoom = 17,
   access_token = mapbox_key
 )$traffic
 
@@ -43,5 +48,22 @@ ca_conf_poly <- ca_conf_poly %>%
 ## Export to GeoJSON (un-comment in case that you want export in this format)
 #st_write(ca_conf_poly, output_path, geojson_test", driver = "GeoJSON", append = TRUE)
 
+export_name = paste("DeVioCity_",adm_code)
+
 ## Export to Shapefile
-st_write(ca_conf_poly, output_path, "DeVio_Cities", driver = "ESRI Shapefile", append = TRUE)
+
+tryCatch(
+  {
+    st_write(ca_conf_poly, output_path, export_name, driver = "ESRI Shapefile", append = TRUE)
+    
+    print(paste0("DeVioCity", adm_code, " exported sucessfully!"))
+  }, error = function(e)
+    print(paste0("Error downloading/exporting ", export_name))
+  
+)
+  
+  
+
+
+
+}
