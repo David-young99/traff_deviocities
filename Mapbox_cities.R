@@ -44,4 +44,4 @@ ca_conf_poly <- ca_conf_poly %>%
 #st_write(ca_conf_poly, output_path, geojson_test", driver = "GeoJSON", append = TRUE)
 
 ## Export to Shapefile
-st_write(ca_conf_poly, output_path, "CA_Vector_road13", driver = "ESRI Shapefile", append = TRUE)
+st_write(ca_conf_poly, output_path, "DeVio_Cities", driver = "ESRI Shapefile", append = TRUE)
