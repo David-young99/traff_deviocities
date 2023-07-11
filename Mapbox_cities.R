@@ -18,7 +18,7 @@ da_te = paste0(day, "_", month)
 
 ## Set API key (This API key must be with the Mapbox account based on the GeoAdaptive google account)
 #mapbox_key <- "pk.eyJ1IjoiZHlvdW5nOTkiLCJhIjoiY2xqY3Zpaml6MjRsazNxcWcybGk3aGczdiJ9.30a_QLXc7Obxj3Ugx7lJAg"
-#mapbox_key = "pk.eyJ1IjoiZGF2aWR5ZmxvbCIsImEiOiJjamdyNmRqMnAwMzBhMnhsb2oyNWx0aWk4In0.Zw_q8QejxpFOcuJJ_lWwjA"
+mapbox_key = "pk.eyJ1IjoiZGF2aWR5ZmxvbCIsImEiOiJjamdyNmRqMnAwMzBhMnhsb2oyNWx0aWk4In0.Zw_q8QejxpFOcuJJ_lWwjA"
 
 
 ##Un/comment this path if you are running the code in windows (please change the path for your computer)
