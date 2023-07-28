@@ -5,7 +5,7 @@ library(mapboxapi)
 library(dplyr)
 library(sf)
 
-
+##
 #This sections get the day and time of the current code ejecution, this is for a custom name file save.
 current_date = Sys.Date()
 day = format(current_date, "%d")
