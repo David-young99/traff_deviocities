@@ -22,7 +22,7 @@ hora_actual <- format(Sys.time(), format = "%H:%M:%S")
 
 ## Set API key (This API key must be with the Mapbox account based on the GeoAdaptive google account)
 #mapbox_key <- "pk.eyJ1IjoiZHlvdW5nOTkiLCJhIjoiY2xqY3Zpaml6MjRsazNxcWcybGk3aGczdiJ9.30a_QLXc7Obxj3Ugx7lJAg"
-mapbox_key = "pk.eyJ1IjoiZGF2aWR5ZiIsImEiOiJjbGthNTE4NnowMzRpM2ZueGJka20yMjZiIn0.KGPQB2F1WXgmBKsNNzU8Kg"
+mapbox_key = "pk.eyJ1IjoiZGFyZG85MyIsImEiOiJjbGttcnI0NmswbmNwM2VtdjYzeTF1bWI3In0.rGczuUVhhVqO3WzKajrLSA"
 
 
 ##Un/comment this path if you are running the code in windows (please change the path for your computer)
