@@ -38,7 +38,7 @@ input_path = "/home/dyoung/gitrepos/traff_deviocities/inputs/"
 output_pathyear = paste0("/home/dyoung/gitrepos/traff_deviocities/outputs/", year)
 output_pathdate = paste0(output_pathyear, da_te)
 
-output_path = "/home/dyoung/gitrepos/traff_deviocities/outputs/"
+output_path = paste0("/home/dyoung/gitrepos/traff_deviocities/outputs/", year, "/", da_te, "/")
 
 
 
