@@ -39,6 +39,7 @@ output_pathyear = paste0("/home/dyoung/gitrepos/traff_deviocities/outputs/", yea
 output_pathdate = paste0(output_pathyear, da_te)
 
 output_path = paste0("/home/dyoung/gitrepos/traff_deviocities/outputs/", year, "/", da_te, "/")
+##sas
 
 
 
